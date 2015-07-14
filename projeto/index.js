@@ -1,3 +1,14 @@
+function calculaTodosImcs(pascientesTr){
+
+	percorreArray(pascientesTr, function(paciente){
+        //monta paciente
+        var imc = paciente.pegaImc(); // pega o imc do paciente atual
+        var trDoImc = trDoPaciente.getElementsByClassName("info-imc")[0];
+        imcTd.textContent = imc; // atualiza imc
+        console.log(imc); // imprime o imc do paciente atual    
+    }); 
+}
+
 
 function pecorreArray(pascientesTr, comportamento){
 	for(var i=0;i<pascientesTr.length;i++){
@@ -35,3 +46,18 @@ var pascientesTr = document.getElementsByClassName("paciente");
 
 pecorreArray(pascientesTr, imprimeImc);
 pecorreArray(pascientesTr, imprimeNome);
+
+var botao = document.getElementById("calcula-imcs");
+botao.addEventListener("click", function(){
+	console.log("Primeira");
+});
+
+botao.addEventListener("click", function(){
+	console.log("Segunda");
+});
+
+pecorreArray(pascientesTr, function(trAtual){
+	trAtual.addEventListener("mouseover", function(){
+		this.setAttribute("bgcolor", "grey");
+	});
+});
