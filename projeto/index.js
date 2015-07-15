@@ -61,3 +61,28 @@ pecorreArray(pascientesTr, function(trAtual){
 		this.setAttribute("bgcolor", "grey");
 	});
 });
+
+var botaoAddPaciente = document.querySelector("#adicionar-paciente");
+botaoAddPaciente.addEventListener("click", function(event){
+	event.preventDefault();
+	var pascientesTr = document.getElementsByClassName("paciente");
+	var nome = document.querySelector("#campo-nome");
+	var peso = document.querySelector("#campo-peso");
+	var altura = document.querySelector("#campo-altura");
+
+	var novoPaciente = "<tr class='paciente'>"+
+                          "<td class='info-nome'>"+nome.value+"</td>"+
+                          "<td class='info-peso'>"+peso.value+"</td>"+
+                          "<td class='info-altura'>"+altura.value+"</td>"+
+                          "<td class='info-imc'></td>"+
+                       "</tr>";
+    var todosPacientes = document.querySelector("table");
+    todosPacientes.innerHTML += novoPaciente;
+
+    nome.value = "";
+    peso.value = "";
+    altura.value = "";
+    
+pecorreArray(pascientesTr, imprimeImc);
+
+});
